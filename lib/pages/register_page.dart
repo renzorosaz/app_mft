@@ -19,7 +19,8 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
 
   @override
   Widget build(BuildContext context) {
-    final ReqCreateUser usuarioArgs = ModalRoute.of(context).settings.arguments;
+
+    /* final ReqCreateUser usuarioArgs = ModalRoute.of(context).settings.arguments; */
 
     return Scaffold(
         body: _crearFondo(context));

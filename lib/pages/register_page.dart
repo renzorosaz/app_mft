@@ -64,7 +64,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
     print(usuario.toJson()); 
     /* usuarioProvider.crearUsuario(usuario);
    */
-   Navigator.pushNamed(context, 'showEvas');
+   Navigator.pushNamed(context, 'showSelectEvas');
     
   }
 

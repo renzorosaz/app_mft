@@ -1,7 +1,11 @@
-import 'package:app_mft/pages/cliente/complete_goalnutri_page.dart';
-import 'package:app_mft/pages/cliente/complete_goalphysic_page.dart';
+import 'package:app_mft/pages/cliente/evaFis/complete_controlphysic_page.dart';
+import 'package:app_mft/pages/cliente/evaFis/complete_operationphysic_page.dart';
+import 'package:app_mft/pages/cliente/evaNutri/complete_controlnutri_page.dart';
+import 'package:app_mft/pages/cliente/evaNutri/complete_goalnutri_page.dart';
+import 'package:app_mft/pages/cliente/evaFis/complete_goalphysic_page.dart';
+import 'package:app_mft/pages/cliente/evaNutri/complete_macrosnutri_page.dart';
 import 'package:app_mft/pages/cliente/goals_page.dart';
-import 'package:app_mft/pages/cliente/home_page.dart';
+import 'package:app_mft/pages/cliente/home_client_page.dart';
 import 'package:app_mft/pages/cliente/profile_page.dart';
 import 'package:app_mft/pages/cliente/programs_page.dart';
 import 'package:app_mft/pages/cliente/show_evaluations_page.dart';
@@ -26,22 +30,27 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Material App',
-        initialRoute: 'login',
+        initialRoute: 'home',
         routes: {
           'login': (BuildContext context) => LoginPage(),
           'register' :(BuildContext context)=> RegisterUserPage(),
 
-          'showEvas' :(BuildContext context) => ShowEvaluationsPage(),
-
+          'showSelectEvas' :(BuildContext context) => ShowEvaluationsPage(),
+          //evaNutricional
           'completeGoalN' :(BuildContext context) =>CompleteGoalNutriPage(),
+          'completeMacrosN' :(BuildContext context) => CompleteMacrosNutriPage(),
+          'completeControlN' :(BuildContext context) => CompleteControlNutriPage(),
+          //evaFisica
           'completeGoalF' :(BuildContext context) =>CompleteGoalPhysPage(),
+          'completeOperatF' :(BuildContext context) =>CompleteOperationPhysicPage(),
+          'completeControlF' :(BuildContext context) =>CompleteControlPhysicPage(),
 
 
         
-          'home' :(BuildContext context) =>HomePage(),
+          'home' :(BuildContext context) =>HomeClientPage(),
           'profClie' :(BuildContext context) =>ProfilePage(),
           'programs' :(BuildContext context) =>ProgramsPage(),
-           'goalsClie' :(BuildContext context) =>GoalsPage(),
+          'goalsClie' :(BuildContext context) =>GoalsPage(),
         },
 
         );

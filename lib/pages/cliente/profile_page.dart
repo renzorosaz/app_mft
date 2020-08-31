@@ -9,8 +9,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-
-
   final List<String> fecha = <String>['22', '23', '24', '25', '26', '27', '28'];
   final List<String> dia = <String>[
     'Lunes',
@@ -22,21 +20,19 @@ class _ProfilePageState extends State<ProfilePage> {
     'Domingo'
   ];
   final List<String> musculo = <String>[
-    'Biceps - Espalda',
-    'Piernas Pecho',
-    'Abs - Cardio',
-    'Biceps - Espalda',
-    'Piernas Pecho',
-    'Abs - Cardio',
-    'BONUS SACO'
+    'Biteck a la plancha',
+    'Ensalda FIT',
+    'Pollo al Horno',
+    'Free Light Super',
+    'Free',
+    'Ensalda FIT',
+    'Pollo al Horno'
   ];
 
   double porcentaje = 0;
 
   @override
   Widget build(BuildContext context) {
-    
-
     return Scaffold(
       body: SingleChildScrollView(
         child: Container(
@@ -130,48 +126,58 @@ class _ProfilePageState extends State<ProfilePage> {
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
                       children: [
                         Container(
-                          width: 120,
-                          child: Column(
-                            children: [
-                              Text(
-                                "Indice de Masa Corporal",
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              Text(
-                                "Resultado : 24.97 %",
-                                style: TextStyle(fontSize: 15),
-                              ),
-                            ],
+                          width: 125,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Indice de Masa Corporal",
+                                  style: TextStyle(fontSize: 18),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  "24.97 %",
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Container(
-                          width: 120,
-                          child: Column(
-                            children: [
-                              Text(
-                                "Calorias Diarias",
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              Text(
-                                "Resultado : 2195kcal",
-                                style: TextStyle(fontSize: 15),
-                              ),
-                            ],
+                          width: 125,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Text(
+                                  "Calorias Diarias",
+                                  style: TextStyle(fontSize: 18, ),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  "2195kcal",
+                                  style: TextStyle(fontSize: 15),
+
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         Container(
-                          width: 120,
-                          child: Column(
-                            children: [
-                              Text(
-                                "Indice de Grasa Corporal",
-                                style: TextStyle(fontSize: 18),
-                              ),
-                              Text(
-                                "Resultado : 19.95%",
-                                style: TextStyle(fontSize: 15),
-                              ),
-                            ],
+                          width: 125,
+                          child: Card(
+                            child: Column(
+                              children: [
+                                Text(
+                                  "% Grasa Corporal",
+                                  style: TextStyle(fontSize: 18),
+                                  textAlign: TextAlign.center,
+                                ),
+                                Text(
+                                  "19.95%",
+                                  style: TextStyle(fontSize: 15),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                       ],
@@ -184,7 +190,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 child: Container(
                   width: 250,
                   height: 20,
-                  child: Text("Distribución de Macronutrientes"),
+                  child: Text("Distribución de Macronutrientes",style: TextStyle(
+                          fontWeight: FontWeight.w600, color: Colors.grey)),
                 ),
               ),
               Row(
@@ -201,69 +208,14 @@ class _ProfilePageState extends State<ProfilePage> {
                   /* CustomRadialProgress(porcentaje: porcentajeProte, color: Colors.greenAccent,tipomacro: 'Proteinas',),//proteinas
                   CustomRadialProgress(porcentaje: porcentajeCarbo, color: Colors.greenAccent[200],tipomacro: 'Carbohidratos',),
                   CustomRadialProgress(porcentaje: porcentajeGrasa, color: Colors.greenAccent[100],tipomacro: 'Grasa',),  //carbohidratos */
-                  CustomRadialProgress(
-                      porcentaje: porcentaje, color: Colors.black54),
-                  CustomRadialProgress(
-                      porcentaje: porcentaje, color: Colors.black54),
-                  CustomRadialProgress(
-                      porcentaje: porcentaje, color: Colors.black54),
+                  CustomRadialProgress(porcentaje: 100.0, cantidad: 180, color: Colors.black54),
+                  CustomRadialProgress(porcentaje: 100.0 ,cantidad: 220, color: Colors.black54),
+                  CustomRadialProgress(porcentaje: 100.0,cantidad: 80, color: Colors.black54),
                 ],
               ),
-              SizedBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 229),
-                    child: Text("ACTIVIDADES",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, color: Colors.grey)),
-                  ),
-                  Text(
-                    "VER TODO",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
-              Container(
-                width: 420,
-                height: 250,
-                child: ListView.separated(
-                  scrollDirection: Axis.horizontal,
-                    separatorBuilder: (BuildContext context, int index) =>
-                        const Divider(),
-                    padding: const EdgeInsets.all(8),
-                    itemCount: dia.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        height: 100,
-                        child: Center(
-                            child: Row(
-                          children: [
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                Text('${fecha[index]}'),
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                Text('Agosto ${fecha[index]}'),
-                              ],
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Icon(Icons.work),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Text('Músculo ${musculo[index]}'),
-                          ],
-                        )),
-                      );
-                    }),
-              )
+              Text("Post Realizados",
+                      style: TextStyle(
+                          fontWeight: FontWeight.w600, color: Colors.grey)),
             ],
           ),
         ),
@@ -280,12 +232,15 @@ class ItemLista {
 class CustomRadialProgress extends StatelessWidget {
   final Color color;
   final double porcentaje;
+  final double cantidad;
+
   /* 
   final String tipomacro; */
 
   const CustomRadialProgress({
     @required this.porcentaje,
     @required this.color,
+    this.cantidad,
     /* 
     @required this.tipomacro, */
   });
@@ -295,18 +250,20 @@ class CustomRadialProgress extends StatelessWidget {
     return Container(
       width: 100,
       height: 100,
-      child: RadialProgress(
-        porcentaje: this.porcentaje,
-        colorPrimario: this.color,
-        colorSecundario: Colors.blueAccent,
-        grosorPrimario: 5,
-        grosorSecundario: 5,
+      child: Stack(
+        children: [
+          RadialProgress(
+            porcentaje: porcentaje,
+            colorPrimario: this.color,
+            grosorPrimario: 5,
+            grosorSecundario: 5,
+          ),
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 25, vertical: 40),
+            child: Text('$cantidad'"g"),
+          ),
+        ],
       ),
-      /* Container(
-              padding: EdgeInsets.symmetric(horizontal:30,vertical:40),
-              child: Text('$porcentaje %'),
-            ), */
-
       /* Text(tipomacro.toString()) */
     );
   }

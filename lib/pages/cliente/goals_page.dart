@@ -8,181 +8,238 @@ class GoalsPage extends StatefulWidget {
 }
 
 class _GoalsPageState extends State<GoalsPage> {
+  List _emojis = ['😃', '😜', '🤓', '😁', '😂', '😞'];
+  List _listagrasa = ['10', '15', '20', '25', '30', '35'];
 
-  final List<String> fecha = <String>['22', '23', '24', '25', '26', '27', '28'];
-  final List<String> dia = <String>[
-    'Lunes',
-    'Martes',
-    'Miercoles',
-    'Jueves',
-    'Viernes',
-    'Sábado',
-    'Domingo'
-  ];
-  final List<String> musculo = <String>[
-    'Biceps - Espalda',
-    'Piernas Pecho',
-    'Abs - Cardio',
-    'Biceps - Espalda',
-    'Piernas Pecho',
-    'Abs - Cardio',
-    'BONUS SACO'
+  List _listaimc = [
+    'Bajo de peso',
+    'Normal',
+    'Sobrepeso',
+    'Obesidad',
+    'Obesidad 2'
   ];
 
-  
+  double _valuePeso = 0.0;
+  double _valueGrasa = 0.0;
+  double _valueMC = 0.0;
+
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-       body:SingleChildScrollView(
-        child: Column(
-          children: [
-            Stack(
+      body: SingleChildScrollView(
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 50),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Stack(children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.transparent,
-                      image: DecorationImage(
-                        fit: BoxFit.fill,
-                        image: AssetImage(
-                          'assets/perfil.jpg',
-                        ),
-                      ),
+                Text("Evaluaciónes",
+                    style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                        color: Colors.grey,
+                        fontSize: 20)),
+                Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Ultima evaluación "),
+                        Text("Próxima evaluación ")
+                      ],
                     ),
-                    height: 350.0,
-                  ),
-                  Container(
-                    height: 350.0,
-                    decoration: BoxDecoration(
-                        color: Colors.white,
-                        gradient: LinearGradient(
-                            begin: FractionalOffset.topCenter,
-                            end: FractionalOffset.bottomCenter,
-                            colors: [
-                              Colors.grey.withOpacity(0.5),
-                              Colors.black,
-                            ],
-                            stops: [
-                              1.0,
-                              0.5
-                            ])),
-                  )
-                ]),
-                Container(
-                  width: 250,
-                  margin: EdgeInsets.symmetric(horizontal: 120, vertical: 80),
-                  child: Column(
-                    children: [
-                      Title(
-                          color: Colors.white,
-                          child: Text(
-                            "Objetivo",
-                            style: TextStyle(fontSize: 25, color: Colors.white),
-                            textAlign: TextAlign.center,
-                          )),
-                      SizedBox(
-                        height: 15,
-                      ),
-                      Row(
+                    SizedBox(
+                      width: 40,
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("11 de Julio 2020"),
+                        Text("25 de Julio 2020 ")
+                      ],
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 40,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Card(
+                      elevation: 7,
+                      shadowColor: Colors.black,
+                      child: Column(
                         children: [
-                          Text("80kg",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 13)),
-                          Icon(
-                            Icons.check_circle,
-                            color: Colors.greenAccent,
-                            size: 20,
-                          )
+                          Text(
+                            "Peso Actual",
+                            style: TextStyle(fontSize: 18),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            '${(_valuePeso*100).toStringAsFixed(2)}',
+                            style: Theme.of(context).textTheme.headline4,
+                          ),
                         ],
                       ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 20),
-                        child: Row(
-                          children: [
-                            Text("Sobrepeso",
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 13)),
-                            Icon(
-                              Icons.check_circle,
-                              color: Colors.greenAccent,
-                              size: 20,
-                            )
-                          ],
-                        ),
-                      ),
-                      Container(
-                        width: 240,
-                        height: 200,
-                        child: Center(
-                            child: Image.asset(
-                          "assets/perfil.jpg",
-                          fit: BoxFit.cover,
+                    ),
+                    Text(
+                      '${_emojis[_valuePeso.toInt()]}',
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Expanded(
+                                child: Slider(
+                                  value: _valuePeso,
+                                  /* label: _emojis[_valuePeso.toInt()], */
+                                  min: 0.0,
+                                  max: 1.0,
+                                  onChangeStart: (double value) {
+                                    print('Start value is ' + value.toString());
+                                  },
+                                  onChangeEnd: (double value) {
+                                    print(
+                                        'Finish value is ' + value.toString());
+                                  },
+                                  onChanged: (double value) {
+                                    setState(() {
+                                      _valuePeso = value;
+                                    });
+                                  },
+                                  activeColor: Colors.blueAccent,
+                                  inactiveColor: Colors.black45,
+                                ),
+                              ),
+                            ],
+                          ),
                         )),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Card(
+                      elevation: 7,
+                      shadowColor: Colors.black,
+                      child: Column(
+                        children: [
+                          Text(
+                            "% Grasa Corporal",
+                            style: TextStyle(fontSize: 18),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            '${_valueGrasa.toStringAsPrecision(3)}',
+                            style: Theme.of(context).textTheme.headline4,
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(_emojis[0], softWrap: true),
+                              Expanded(
+                                child: Slider(
+                                  value: _valueGrasa,
+                                  //label: _emojis[_value.toInt()],
+                                  min: 0.0,
+                                  max: 50.0,
+                                  onChangeStart: (double value) {
+                                    print('Start value is ' + value.toString());
+                                  },
+                                  onChangeEnd: (double value) {
+                                    print(
+                                        'Finish value is ' + value.toString());
+                                  },
+                                  onChanged: (double value) {
+                                    setState(() {
+                                      _valueGrasa = value;
+                                    });
+                                  },
+                                  activeColor: Colors.greenAccent,
+                                  inactiveColor: Colors.black45,
+                                ),
+                              ),
+                              Text(
+                                _emojis[5],
+                                softWrap: true,
+                              )
+                            ],
+                          ),
+                        )),
+                    SizedBox(
+                      height: 40,
+                    ),
+                    Card(
+                      elevation: 7,
+                      shadowColor: Colors.black,
+                      child: Column(
+                        children: [
+                          Text(
+                            "Indice de Masa Corporal",
+                            style: TextStyle(fontSize: 18),
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            "24.97 %",
+                            style: TextStyle(fontSize: 15),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Text(
+                      '${_listaimc[_valueMC.toInt()]}',
+                      style: Theme.of(context).textTheme.headline4,
+                    ),
+                    Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                        child: Container(
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Text(_listaimc[0], softWrap: true),
+                              Expanded(
+                                child: Slider(
+                                  value: _valueMC,
+                                  //label: _emojis[_value.toInt()],
+                                  min: 0.0,
+                                  max: 4.0,
+                                  onChangeStart: (double value) {
+                                    print('Start value is ' + value.toString());
+                                  },
+                                  onChangeEnd: (double value) {
+                                    print(
+                                        'Finish value is ' + value.toString());
+                                  },
+                                  onChanged: (double value) {
+                                    setState(() {
+                                      _valueMC = value;
+                                    });
+                                  },
+                                  activeColor: Colors.orangeAccent,
+                                  inactiveColor: Colors.black45,
+                                ),
+                              ),
+                              Text(
+                                _listaimc[4],
+                                softWrap: true,
+                              )
+                            ],
+                          ),
+                        )),
+                  ],
                 ),
               ],
             ),
-            SizedBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(right: 229),
-                    child: Text("ACTIVIDADES",
-                        style: TextStyle(
-                            fontWeight: FontWeight.w600, color: Colors.grey)),
-                  ),
-                  Text(
-                    "VER TODO",
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              width: 420,
-              height: 398,
-              child: ListView.separated(
-                  separatorBuilder: (BuildContext context, int index) =>
-                      const Divider(),
-                  padding: const EdgeInsets.all(8),
-                  itemCount: dia.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return Container(
-                      height: 80,
-                      child: Center(
-                          child: Row(
-                        children: [
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
-                              Text('${fecha[index]}'),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Text('Agosto ${fecha[index]}'),
-                            ],
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Icon(Icons.work),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          Text('Músculo ${musculo[index]}'),
-                        ],
-                      )),
-                    );
-                  }),
-            )
-          ],
+          ),
         ),
       ),
     );
-
   }
 }

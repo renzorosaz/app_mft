@@ -7,6 +7,7 @@ import 'package:app_mft/pages/cliente/evaNutri/complete_macrosnutri_page.dart';
 import 'package:app_mft/pages/cliente/goals_page.dart';
 import 'package:app_mft/pages/cliente/home_client_page.dart';
 import 'package:app_mft/pages/cliente/profile_page.dart';
+import 'package:app_mft/pages/cliente/programaphysic/list_physicrutines_page.dart';
 import 'package:app_mft/pages/cliente/programs_page.dart';
 import 'package:app_mft/pages/cliente/show_evaluations_page.dart';
 import 'package:app_mft/pages/login_page.dart';
@@ -30,7 +31,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Material App',
-        initialRoute: 'home',
+        initialRoute: 'login', 
         routes: {
           'login': (BuildContext context) => LoginPage(),
           'register' :(BuildContext context)=> RegisterUserPage(),
@@ -45,11 +46,12 @@ class _MyAppState extends State<MyApp> {
           'completeOperatF' :(BuildContext context) =>CompleteOperationPhysicPage(),
           'completeControlF' :(BuildContext context) =>CompleteControlPhysicPage(),
 
-
+          //programa fisico 
+          'listPhysicRutines' :(BuildContext context) =>ListPhysicRutinesPage(),
         
-          'home' :(BuildContext context) =>HomeClientPage(),
-          'profClie' :(BuildContext context) =>ProfilePage(),
+          'home' :(BuildContext context) =>HomeClientPage(),          
           'programs' :(BuildContext context) =>ProgramsPage(),
+          'profClie' :(BuildContext context) =>ProfilePage(),
           'goalsClie' :(BuildContext context) =>GoalsPage(),
         },
 

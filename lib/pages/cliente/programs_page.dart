@@ -30,17 +30,12 @@ class _ProgramsPageState extends State<ProgramsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Align(alignment: Alignment.center, child: Text("Programas")),
-        backgroundColor: Colors.greenAccent,
-        
-      ),
+    return new Scaffold(
       body: SingleChildScrollView(
         child: Align(
           alignment: Alignment.center,
           child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 25),
+            padding: const EdgeInsets.symmetric(vertical: 40),
             child: Column(
               children: [
                 Align(
@@ -75,25 +70,30 @@ class _ProgramsPageState extends State<ProgramsPage> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Card(
-                    child: Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      child: Column(
-                        children: [
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: Text("Mi Ejercicios")),
-                          Container(
-                            height: 180,
-                            width: 350,
-                            child: Image.network(
-                              "https://acs2.blob.core.windows.net/imgcatalogo/m/VA_674e942d8f56473bafccf1184a89712c.jpg",
-                              fit: BoxFit.fitWidth,
+                GestureDetector(
+                  onTap: (){
+                    Navigator.pushNamed(context,'listPhysicRutines');
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Card(
+                      child: Container(
+                        margin: EdgeInsets.only(bottom: 10),
+                        child: Column(
+                          children: [
+                            Align(
+                                alignment: Alignment.topLeft,
+                                child: Text("Mi Ejercicios")),
+                            Container(
+                              height: 180,
+                              width: 350,
+                              child: Image.network(
+                                "https://acs2.blob.core.windows.net/imgcatalogo/m/VA_674e942d8f56473bafccf1184a89712c.jpg",
+                                fit: BoxFit.fitWidth,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ),
                   ),

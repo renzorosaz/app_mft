@@ -15,7 +15,7 @@ class RadialProgress extends StatefulWidget {
     this.colorPrimario= Colors.blue, 
     this.colorSecundario= Colors.grey, 
     this.grosorPrimario= 4,
-    this.grosorSecundario= 4
+    this.grosorSecundario= 4,
     
     });
 
@@ -33,7 +33,10 @@ class _RadialProgressState extends State<RadialProgress> with SingleTickerProvid
 
     porcentajeAnterior = widget.porcentaje;
 
-    controller = new AnimationController(vsync: this, duration: Duration(milliseconds: 200));
+    controller = new AnimationController(
+      vsync: this,
+       duration: Duration(milliseconds: 200)
+    );
 
 
     super.initState();
@@ -69,6 +72,7 @@ class _RadialProgressState extends State<RadialProgress> with SingleTickerProvid
               widget.grosorPrimario,
               widget.grosorSecundario
             ),
+            
           )
         );
       },
@@ -105,9 +109,8 @@ class _MiRadialProgress extends CustomPainter{
 
     final Gradient gradiente = new LinearGradient(
       colors: <Color>[
-        Color(0xffC012FF),
-        Color(0xff6D05E8),
-        Colors.redAccent
+        Colors.blueAccent,
+        Colors.greenAccent,
       ]
       );
 

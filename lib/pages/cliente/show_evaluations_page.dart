@@ -53,7 +53,7 @@ class _CardsEvaluation extends StatelessWidget {
           ),
           GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, 'compGoalNutri');
+                Navigator.pushNamed(context, 'completeGoalN');
               },
               child: Container(
                 width: 300,
@@ -91,7 +91,7 @@ class _CardsEvaluation extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () {
-              Navigator.pushNamed(context, 'compGoalPhysi');
+              Navigator.pushNamed(context, 'completeGoalF');
             },
             child: Container(
               width: 300,

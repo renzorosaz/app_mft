@@ -52,7 +52,7 @@ class _CompleteControlPhysicPageState extends State<CompleteControlPhysicPage> {
             RaisedButton(
                 child: Text("Siguiente"),
                 onPressed: (){
-                    Navigator.pushNamed(context, 'home');
+                    Navigator.pushNamed(context, 'profClie');
               })
           ],
         ) ,

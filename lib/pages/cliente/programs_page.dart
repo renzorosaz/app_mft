@@ -58,21 +58,24 @@ class _ProgramsPageState extends State<ProgramsPage> {
                               alignment: Alignment.topLeft,
                               child: Text("Mi Alimentación")),
                           Container(
-                            height: 180,
-                            width: 350,
-                            child: Image.network(
-                              "https://acs2.blob.core.windows.net/imgcatalogo/m/VA_674e942d8f56473bafccf1184a89712c.jpg",
-                              fit: BoxFit.fitWidth,
-                            ),
-                          ),
+                                height: 180,
+                                width: 350,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                  image: ExactAssetImage('assets/proNutri.jpg'),
+                                  colorFilter: ColorFilter.mode(
+                                      Colors.black.withOpacity(0.3),
+                                      BlendMode.darken),
+                                  fit: BoxFit.cover,
+                                ))),
                         ],
                       ),
                     ),
                   ),
                 ),
                 GestureDetector(
-                  onTap: (){
-                    Navigator.pushNamed(context,'listPhysicRutines');
+                  onTap: () {
+                    Navigator.pushNamed(context, 'listPhysicRutines');
                   },
                   child: Padding(
                     padding: const EdgeInsets.all(20.0),
@@ -85,13 +88,16 @@ class _ProgramsPageState extends State<ProgramsPage> {
                                 alignment: Alignment.topLeft,
                                 child: Text("Mi Ejercicios")),
                             Container(
-                              height: 180,
-                              width: 350,
-                              child: Image.network(
-                                "https://acs2.blob.core.windows.net/imgcatalogo/m/VA_674e942d8f56473bafccf1184a89712c.jpg",
-                                fit: BoxFit.fitWidth,
-                              ),
-                            ),
+                                height: 180,
+                                width: 350,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                  image: ExactAssetImage('assets/proFis.jpg'),
+                                  colorFilter: ColorFilter.mode(
+                                      Colors.black.withOpacity(0.3),
+                                      BlendMode.darken),
+                                  fit: BoxFit.cover,
+                                ))),
                           ],
                         ),
                       ),

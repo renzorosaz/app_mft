@@ -15,14 +15,14 @@ class _ShowEvaluationsPageState extends State<ShowEvaluationsPage> {
         child: Column(
           children: [
             Container(
-              padding: EdgeInsets.only(top: 40, left: 20),
+              width: 300,
+              margin: EdgeInsets.only(top:20),
               child: Text(
                   "Para empezar a disfrutar del Programa de Adaptación MFT tendrás que completar nuestra evaluación diseñado por expertos en nutrición y entrenadores físicos para darte el mejor servicio",
                   style: TextStyle(
                       color: Colors.black,
                       fontSize: 15.0,
-                      fontFamily: "Lato",
-                      fontWeight: FontWeight.bold)),
+                      fontFamily: 'Exo2',)),
             ),
             _CardsEvaluation(),
           ],
@@ -40,23 +40,25 @@ class _CardsEvaluation extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 30, horizontal: 50),
       child: Column(
         children: [
-          Padding(
+          Container(
             padding: const EdgeInsets.only(right: 73),
+            
             child: Text('Evaluacion Estado Nutricional',
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: 15.0,
-                    fontFamily: "Lato",
-                    fontWeight: FontWeight.bold),
+                    fontFamily: 'Exo2',),
                     maxLines: 1,
           ),
+        
           ),
+          SizedBox(height: 20,),
           GestureDetector(
               onTap: () {
                 Navigator.pushNamed(context, 'completeGoalN');
               },
               child: Container(
-                width: 300,
+                width: 650,
                 height: 150,
                 child: Container(
                   decoration: BoxDecoration(
@@ -89,12 +91,13 @@ class _CardsEvaluation extends StatelessWidget {
                     fontFamily: "Lato",
                     fontWeight: FontWeight.bold)),
           ),
+          SizedBox(height: 20,),
           GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, 'completeGoalF');
             },
             child: Container(
-              width: 300,
+              width: 400,
               height: 150,
               child: Container(
                 decoration: BoxDecoration(

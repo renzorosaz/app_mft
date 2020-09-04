@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class RateProgramaPhysicPage extends StatefulWidget {
@@ -15,51 +17,66 @@ var _emojis = ['😃', '😜', '🤓', '😁', '😂', '😞'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-       body:Column(
-         children: [
-           Text(
-                      '${_emojis[_value.toInt()]}',
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                    Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(_emojis[0], softWrap: true),
-                              Expanded(
-                                child: Slider(
-                                  value: _value,
-                                  //label: _emojis[_value.toInt()],
-                                  min: 0.0,
-                                  max: 5.0,
-                                  divisions: 5,
+      appBar: AppBar(
+         title:Text("Feedback")
+      ),
+       body:Center(
+         child: Padding(
+           padding: const EdgeInsets.all(8.0),
+           child: Column(
+             children: [
+               Text("Estuvo poderoso!!?",style: TextStyle(fontSize: 20),),
+               Text(
+                          '${_emojis[_value.toInt()]}',
+                          style: Theme.of(context).textTheme.headline4,
+                        ),
+                        Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Container(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Text(_emojis[0], softWrap: true),
+                                  Expanded(
+                                    child: Slider(
+                                      value: _value,
+                                      //label: _emojis[_value.toInt()],
+                                      min: 0.0,
+                                      max: 5.0,
+                                      divisions: 5,
 
-                                  onChangeStart: (double value) {
-                                    print('Start value is ' + value.toString());
-                                  },
-                                  onChangeEnd: (double value) {
-                                    print(
-                                        'Finish value is ' + value.toString());
-                                  },
-                                  onChanged: (double value) {
-                                    setState(() {
-                                      _value = value;
-                                    });
-                                  },
-                                  activeColor: Colors.white,
-                                  inactiveColor: Colors.black45,
-                                ),
+                                      onChangeStart: (double value) {
+                                        print('Start value is ' + value.toString());
+                                      },
+                                      onChangeEnd: (double value) {
+                                        print(
+                                            'Finish value is ' + value.toString());
+                                      },
+                                      onChanged: (double value) {
+                                        setState(() {
+                                          _value = value;
+                                        });
+                                      },
+                                      activeColor: Colors.white,
+                                      inactiveColor: Colors.black45,
+                                    ),
+                                  ),
+                                  Text(
+                                    _emojis[5],
+                                    softWrap: true,
+                                  )
+                                ],
                               ),
-                              Text(
-                                _emojis[5],
-                                softWrap: true,
-                              )
-                            ],
-                          ),
-                        )),
-         ],
+                            )),
+                            RaisedButton(
+                              child: Text("Enviar"),
+                              onPressed: (){
+                                Navigator.pushNamed(context,"profClie");
+                              },
+                            )
+             ],
+           ),
+         ),
        ),
     );
   }

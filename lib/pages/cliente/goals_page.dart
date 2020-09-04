@@ -65,6 +65,7 @@ class _GoalsPageState extends State<GoalsPage> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    
                     Card(
                       elevation: 7,
                       shadowColor: Colors.black,
@@ -86,12 +87,22 @@ class _GoalsPageState extends State<GoalsPage> {
                       '${_emojis[_valuePeso.toInt()]}',
                       style: Theme.of(context).textTheme.headline4,
                     ),
+                    
                     Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
                         child: Container(
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: <Widget>[
+                              Column(
+                                children: [
+                                  Text("Peso Actual"),
+                                  Text(
+                             '${(_valuePeso*100).toStringAsFixed(2)}',
+                             style: TextStyle(fontSize: 15),
+                             ),
+                                ],
+                              ),
                               Expanded(
                                 child: Slider(
                                   value: _valuePeso,
@@ -113,6 +124,15 @@ class _GoalsPageState extends State<GoalsPage> {
                                   activeColor: Colors.blueAccent,
                                   inactiveColor: Colors.black45,
                                 ),
+                              ),
+                              Column(
+                                children: [
+                                  Text("Meta"),
+                                  Text(
+                             '${((_valuePeso*100)-5).toStringAsFixed(2)}',
+                             style: TextStyle(fontSize: 15),
+                             ),
+                                ],
                               ),
                             ],
                           ),

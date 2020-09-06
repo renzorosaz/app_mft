@@ -32,93 +32,159 @@ class _ProgramsPageState extends State<ProgramsPage> {
   Widget build(BuildContext context) {
     return new Scaffold(
       body: SingleChildScrollView(
-        child: Align(
-          alignment: Alignment.center,
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 40),
+        child: SafeArea(
+          child: Column(children: [
+            Container(
+              width: 325,
+              margin: EdgeInsets.only(top: 20),
+              child: Text(
+                  "Este espacio ha sido preparado por el equipo de Salud y Bienestar de MFT donde podrás revisar la alimentación y los ejercicios que debes realizar",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 15.0,
+                    fontFamily: 'Exo2',
+                  )),
+            ),
+            _CardsProgramas(),
+          ]),
+        ),
+      ),
+    );
+  }
+}
+
+class _CardsProgramas extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.symmetric(vertical: 30, horizontal: 40),
+      child: Column(
+        children: [
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            width: 350,
+            child: Text(
+              'DALE CON TODO EL PODER',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 18.0,
+                  fontFamily: 'Exo2',
+                  fontWeight: FontWeight.w700),
+              maxLines: 1,
+            ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Container(
+            width: 600,
+            padding: const EdgeInsets.only(right: 50),
+            child: Text('MI PROGRAMA NUTRICIONAL',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueGrey,
+                  fontSize: 15.0,
+                  fontFamily: 'Exo2',
+                )),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          GestureDetector(
+              /* onTap: () {
+            Navigator.pushNamed(context, 'completeGoalN');
+          }, */
+              child: Container(
+            width: 650,
+            height: 150,
+            child: Container(
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      bottomRight: Radius.circular(20),
+                      bottomLeft: Radius.circular(20),
+                      topRight: Radius.circular(20)),
+                  image: DecorationImage(
+                    image: ExactAssetImage('assets/proNutri.jpg'),
+                    colorFilter: ColorFilter.mode(
+                        Colors.black.withOpacity(0.3), BlendMode.darken),
+                    fit: BoxFit.cover,
+                  )),
+            ),
+          )),
+          SizedBox(
+            height: 10,
+          ),
+          Container(
+            width: 600,
+            padding: const EdgeInsets.only(right: 50),
+            child: Text('MI PROGRAMA FISICO',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blueGrey,
+                  fontSize: 15.0,
+                  fontFamily: 'Exo2',
+                )),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          GestureDetector(
+            onTap: () {
+              Navigator.pushNamed(context, 'listPhysicRutines');
+            },
+            child: Container(
+              width: 400,
+              height: 150,
+              child: Container(
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(20),
+                        bottomRight: Radius.circular(20),
+                        bottomLeft: Radius.circular(20),
+                        topRight: Radius.circular(20)),
+                    image: DecorationImage(
+                      image: ExactAssetImage('assets/evaphysic.jpg'),
+                      colorFilter: ColorFilter.mode(
+                          Colors.black.withOpacity(0.3), BlendMode.darken),
+                      fit: BoxFit.cover,
+                    )),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Container(
+            width: 325,
+            margin: EdgeInsets.only(top: 20),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Align(
-                  alignment: Alignment.center,
-                  child: Container(
-                    width: 300,
-                    height: 70,
-                    child: Text(
-                        "Este espacio ha sido preparado por el equipo de Salud y Bienestar de MFT donde podrás revisar la alimentación y los ejercicios que debes realizar"),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Card(
-                    child: Container(
-                      margin: EdgeInsets.only(bottom: 10),
-                      child: Column(
-                        children: [
-                          Align(
-                              alignment: Alignment.topLeft,
-                              child: Text("Mi Alimentación")),
-                          Container(
-                                height: 180,
-                                width: 350,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                  image: ExactAssetImage('assets/proNutri.jpg'),
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black.withOpacity(0.3),
-                                      BlendMode.darken),
-                                  fit: BoxFit.cover,
-                                ))),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, 'listPhysicRutines');
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Card(
-                      child: Container(
-                        margin: EdgeInsets.only(bottom: 10),
-                        child: Column(
-                          children: [
-                            Align(
-                                alignment: Alignment.topLeft,
-                                child: Text("Mi Ejercicios")),
-                            Container(
-                                height: 180,
-                                width: 350,
-                                decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                  image: ExactAssetImage('assets/proFis.jpg'),
-                                  colorFilter: ColorFilter.mode(
-                                      Colors.black.withOpacity(0.3),
-                                      BlendMode.darken),
-                                  fit: BoxFit.cover,
-                                ))),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 80),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Consultas, sugerencias o dudas"),
-                      Text("Llamar al +51972685 ó"),
-                      Text("Escribir a mfthabits4life@gmail.com"),
-                    ],
-                  ),
-                )
+                Text("Consultas, sugerencias o dudas",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15.0,
+                      fontFamily: 'Exo2',
+                    )),
+                Text("Llamar al +51972685 ó",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15.0,
+                      fontFamily: 'Exo2',
+                    )),
+                Text("Escribir a mfthabits4life@gmail.com",
+                    style: TextStyle(
+                      color: Colors.black,
+                      fontSize: 15.0,
+                      fontFamily: 'Exo2',
+                    )),
               ],
             ),
           ),
-        ),
+        ],
       ),
     );
   }

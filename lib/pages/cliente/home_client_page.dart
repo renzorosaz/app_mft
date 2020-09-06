@@ -19,7 +19,7 @@ class _HomeClientPageState extends State<HomeClientPage> {
   }
 
  
-  int _currentIndex = 0;
+  int _currentIndex = 1;
   final List<Widget> _children = [ProgramsPage(), ProfilePage(), GoalsPage()];
 
   @override

@@ -19,14 +19,10 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
 
   @override
   Widget build(BuildContext context) {
-
     /* final ReqCreateUser usuarioArgs = ModalRoute.of(context).settings.arguments; */
 
-    return Scaffold(
-        body: _crearFondo(context));
+    return Scaffold(body: _crearFondo(context));
   }
-
-  
 
   Widget _crearBoton() {
     return RaisedButton(
@@ -61,11 +57,10 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
     //person.lastName = "pedro";
     usuario.person = person;
     print(person.toJson());
-    print(usuario.toJson()); 
+    print(usuario.toJson());
     /* usuarioProvider.crearUsuario(usuario);
    */
-   Navigator.pushNamed(context, 'showSelectEvas');
-    
+    Navigator.pushNamed(context, 'showSelectEvas');
   }
 
   Widget _crearUsername() {
@@ -75,7 +70,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
         /* initialValue: cliente.nombre, */
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
-          icon: Icon(Icons.person, color: Colors.blueAccent),
+          icon: Icon(Icons.laptop, color: Colors.blueAccent),
           hintText: 'Usuario',
           labelText: 'Ingresa tu usuario',
         ),
@@ -138,7 +133,6 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
   }
 
   Widget _crearTipoUsuario() {
-    
     return DropdownButton(
         value: usuario.profile,
         items: [
@@ -159,11 +153,11 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
       child: TextFormField(
         keyboardType: TextInputType.text,
         decoration: InputDecoration(
-          icon: Icon(Icons.personal_video, color: Colors.blueAccent),
+          icon: Icon(Icons.person, color: Colors.blueAccent),
           hintText: 'Nombre',
-          labelText: 'Ingresa tu nombre',
+          labelText: 'Nombres',
         ),
-         onSaved: (value) => person.name = value,
+        onSaved: (value) => person.name = value,
         /* validator: (value) {
           if (value.length < 9 || value.length > 10) {
             return 'Debe tener 9 dígitos';
@@ -186,7 +180,7 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
           hintText: 'Apellidos',
           labelText: 'Apellidos',
         ),
-         onSaved: (value) => person.lastName = value,
+        onSaved: (value) => person.lastName = value,
         /* validator: (value) {
           if (value.length < 3) {
             return 'Ingrese su apellido';
@@ -213,166 +207,151 @@ class _RegisterUserPageState extends State<RegisterUserPage> {
         });
   }
 
-Widget _crearFondo(BuildContext context) {
-  final size = MediaQuery.of(context).size;
+  Widget _crearFondo(BuildContext context) {
+    final size = MediaQuery.of(context).size;
 
-  final fondoMFT = Container(
-    height: size.height * 1.1,
-    width: size.width * 1,
-    decoration: BoxDecoration(
-        gradient: LinearGradient(colors: <Color>[
-      Color.fromRGBO(64, 230, 130, 1.0),
-      Color.fromRGBO(5, 117, 230, 1.0),
-    ])),
-  );
+    final fondoMFT = Container(
+      height: size.height * 1.1,
+      width: size.width * 1,
+      decoration: BoxDecoration(
+          gradient: LinearGradient(colors: <Color>[
+        Color.fromRGBO(64, 230, 130, 1.0),
+        Color.fromRGBO(5, 117, 230, 1.0),
+      ])),
+    );
 
-  final logoMFT = SafeArea(
-    child: Container(
-      /* padding: EdgeInsets.symmetric(horizontal:size.width*0.2), */ /* 
-      margin: EdgeInsets.symmetric(horizontal:size.height*0.25, vertical: size.width*0.25), */
-      margin: EdgeInsets.symmetric(
-          horizontal: size.height * 0.15, vertical: size.width * 0.15),
-      height: size.height * 0.20,
-      width: size.width * 0.40,
-      child: Image(
-        image: AssetImage('assets/logomft.png'),
-        fit: BoxFit.contain,
-      ),
-    ),
-  );
-
-  final iconosMFT = Row(
-    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-    children: [
-      Container(
-        margin: EdgeInsets.symmetric(vertical: size.width * 0.10),
-        width: 100,
-        height: 100,
-        child: Image(
-          image: AssetImage('assets/nutricono.png'),
-          color: Colors.white.withOpacity(0.5),
-        ),
-      ),
-      Container(
-        width: 100,
-        height: 100,
-        margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
-        child: Image(
-          image: AssetImage('assets/physicono.png'),
-          color: Colors.white.withOpacity(0.5),
-        ),
-      ),
-    ],
-  );
-
-  final bievenida = Column(
-    children: [
-      Container(
-        padding: EdgeInsets.only(top: 260, left: 20),
-    child: Text('Registro',
-        style: TextStyle(
-            color: Colors.white,
-            fontSize: 30.0,
-            fontFamily: "Lato",
-            fontWeight: FontWeight.bold)),
-      ),
-
-    ],
-
-  );
-
-  final form = Column(
-        children: [
-    //widget para separar de arriba abajo
-    SafeArea(
+    final logoMFT = SafeArea(
       child: Container(
-        height: 250,
-      ),
-    ),
-
-    Form(
-      key: formKey,
-      child: Column(
-        children: [
-        SizedBox(
-          height: 20.0,
+        /* padding: EdgeInsets.symmetric(horizontal:size.width*0.2), */ /* 
+      margin: EdgeInsets.symmetric(horizontal:size.height*0.25, vertical: size.width*0.25), */
+        margin: EdgeInsets.symmetric(
+            horizontal: size.height * 0.15, vertical: size.width * 0.15),
+        height: size.height * 0.20,
+        width: size.width * 0.40,
+        child: Image(
+          image: AssetImage('assets/logomft.png'),
+          fit: BoxFit.contain,
         ),
+      ),
+    );
+
+    final iconosMFT = Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
         Container(
-          margin: EdgeInsets.all(25),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                children: [
-                  Text(
-                    'Usuario',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontFamily: "Lato",
-                        fontWeight: FontWeight.bold),
-                  ),
-                  _crearTipoUsuario(),
-                ],
-              ),
-              Column(
-                children: [
-                  Text(
-                    'Sexo',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontFamily: "Schyler",
-                        fontWeight: FontWeight.bold),
-                  ),
-                  _crearSexo(),
-                ],
-              ),
-            ],
+          margin: EdgeInsets.symmetric(vertical: size.width * 0.10),
+          width: 100,
+          height: 100,
+          child: Image(
+            image: AssetImage('assets/nutricono.png'),
+            color: Colors.white.withOpacity(0.5),
           ),
         ),
-        SizedBox(
-          height: 20.0,
+        Container(
+          width: 100,
+          height: 100,
+          margin: EdgeInsets.symmetric(horizontal: size.width * 0.03),
+          child: Image(
+            image: AssetImage('assets/physicono.png'),
+            color: Colors.white.withOpacity(0.5),
+          ),
         ),
-        _crearUsername(),
-        SizedBox(
-          height: 20.0,
-        ),
-        _crearPass(),
-        SizedBox(
-          height: 20.0,
-        ),
-        _crearEmail(),
-        SizedBox(
-          height: 20.0,
-        ),
-        _crearNombre(),
-        SizedBox(
-          height: 20.0,
-        ),
-        _crearApellido(),
-        SizedBox(
-          height: 20.0,
-        ),
-        SizedBox(
-          height: 20.0,
-        ),
-        _crearBoton()
-      ]),
-    ),
-    SizedBox(height: 15),
-    SizedBox(
-      height: 80,
-    )
-        ],
-      );
+      ],
+    );
 
-  return SingleChildScrollView(
+    final form = Column(
+      children: [
+        //widget para separar de arriba abajo
+        SafeArea(
+          child: Container(
+            height: 250,
+          ),
+        ),
+
+        Container(
+          width: size.width * 0.85,
+          padding: EdgeInsets.symmetric(vertical: 50.0),
+          margin: EdgeInsets.symmetric(vertical: 10.0),
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(5.0),
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                    color: Colors.black26,
+                    blurRadius: 3.0,
+                    offset: Offset(0.0, 5.0),
+                    spreadRadius: 3.0)
+              ]),
+          child: Form(
+            key: formKey,
+            child: Column(children: [
+              Text('Registro',
+                  style: TextStyle(
+                      color: Colors.blueGrey,
+                      fontSize: 30.0,
+                      fontFamily: "Lato",
+                      fontWeight: FontWeight.bold)),
+              SizedBox(
+                height: 20.0,
+              ),
+              Container(
+                padding: EdgeInsets.only(right: 65),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Seleccina sexo',
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 17.0,
+                          fontFamily: "Schyler",
+                          fontWeight: FontWeight.bold),
+                    ),
+                    _crearSexo(),
+                  ],
+                ),
+              ),
+              SizedBox(
+                height: 12.0,
+              ),
+              _crearUsername(),
+              SizedBox(
+                height: 12.0,
+              ),
+              _crearPass(),
+              SizedBox(
+                height: 12.0,
+              ),
+              _crearEmail(),
+              SizedBox(
+                height: 12.0,
+              ),
+              _crearNombre(),
+              SizedBox(
+                height: 12.0,
+              ),
+              _crearApellido(),
+              SizedBox(
+                height: 12.0,
+              ),
+              SizedBox(
+                height: 12.0,
+              ),
+              _crearBoton()
+            ]),
+          ),
+        ),
+        SizedBox(height: 15),
+        SizedBox(
+          height: 80,
+        )
+      ],
+    );
+
+    return SingleChildScrollView(
       child: Stack(
-      children: [fondoMFT, logoMFT, bievenida, iconosMFT,form],
-    ),
-  );
+        children: [fondoMFT, logoMFT, iconosMFT, form],
+      ),
+    );
+  }
 }
-}
-
-

@@ -10,7 +10,7 @@ import 'package:app_mft/pages/cliente/profile_page.dart';
 import 'package:app_mft/pages/cliente/programaphysic/list_physicrutines_page.dart';
 import 'package:app_mft/pages/cliente/programaphysic/rate_programphysic_page.dart';
 import 'package:app_mft/pages/cliente/programs_page.dart';
-import 'package:app_mft/pages/cliente/show_evaluations_page.dart';
+import 'package:app_mft/pages/show_evaluations_page.dart';
 import 'package:app_mft/pages/login_page.dart';
 import 'package:app_mft/pages/register_page.dart';
 import 'package:flutter/material.dart';
@@ -33,7 +33,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(fontFamily: 'Exo2'),
         debugShowCheckedModeBanner: false,
         title: 'Material App',
-        initialRoute: 'login', 
+        initialRoute: 'home', 
         routes: {
           'login': (BuildContext context) => LoginPage(),
           'register' :(BuildContext context)=> RegisterUserPage(),

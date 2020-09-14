@@ -1,7 +1,7 @@
+import 'package:app_mft/models/list_set.dart';
+import 'package:app_mft/models/rutisFisis.dart';
+import 'package:app_mft/utils/dbhelper.dart';
 import 'package:flutter/material.dart';
-import 'package:grocerylist/models/list_set.dart';
-import 'package:grocerylist/models/rutisFisis.dart';
-import 'package:grocerylist/util/dbhelper.dart';
 
 class EjerciciosScreen extends StatefulWidget {
 

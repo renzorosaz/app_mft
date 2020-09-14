@@ -1,8 +1,8 @@
+import 'package:app_mft/models/progreFisi.dart';
+import 'package:app_mft/models/rutisFisis.dart';
+import 'package:app_mft/pages/cliente/programaphysic/ejercicios_screen.dart';
+import 'package:app_mft/utils/dbhelper.dart';
 import 'package:flutter/material.dart';
-import 'package:grocerylist/models/progreFisi.dart';
-import 'package:grocerylist/models/rutisFisis.dart';
-import 'package:grocerylist/routes/ejercicios_screen.dart';
-import 'package:grocerylist/util/dbhelper.dart';
 
 class RutinasFisicasScreen extends StatefulWidget {
   ProgreFisi programList;

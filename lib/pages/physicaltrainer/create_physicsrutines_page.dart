@@ -1,25 +1,26 @@
 import 'package:app_mft/models/progreFisi.dart';
 import 'package:app_mft/models/rutisFisis.dart';
-import 'package:app_mft/pages/cliente/programaphysic/ejercicios_screen.dart';
+import 'package:app_mft/pages/cliente/programaphysic/list_exercises_page.dart';
 import 'package:app_mft/utils/dbhelper.dart';
 import 'package:flutter/material.dart';
 
-class RutinasFisicasScreen extends StatefulWidget {
+// ignore: must_be_immutable
+class CreatePhysicRutinesPage extends StatefulWidget {
   ProgreFisi programList;
   /* 
   RutisFisi rutislist; */
 
-  RutinasFisicasScreen(this.programList);
+  CreatePhysicRutinesPage();
 
   @override
-  _RutinasFisicasScreenState createState() =>
-      _RutinasFisicasScreenState(programList);
+  _CreatePhysicRutinesPageState createState() =>
+      _CreatePhysicRutinesPageState();
 }
 
-class _RutinasFisicasScreenState extends State<RutinasFisicasScreen> {
+class _CreatePhysicRutinesPageState extends State<CreatePhysicRutinesPage> {
   DbHelper helper = DbHelper();
   ProgreFisi programList;
-  _RutinasFisicasScreenState(this.programList);
+  _CreatePhysicRutinesPageState();
 
   List<RutisFisi> listRutinas;
 
@@ -74,7 +75,7 @@ class _RutinasFisicasScreenState extends State<RutinasFisicasScreen> {
               trailing: IconButton(icon: Icon(Icons.edit), onPressed: (){
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (c) =>  EjerciciosScreen(listRutinas[index])));
+                  MaterialPageRoute(builder: (c) =>  ListExcercisesPage()));
 
               }),
                   title: Text(listRutinas[index].nombre)
@@ -84,6 +85,10 @@ class _RutinasFisicasScreenState extends State<RutinasFisicasScreen> {
           ),
           
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => Navigator.pushNamed(context, '/create'),
+        child: Icon(Icons.add)
       ),
     );
   }

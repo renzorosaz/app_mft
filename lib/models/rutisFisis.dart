@@ -1,7 +1,6 @@
 /* rutisFisis(id INTEGER PRIMARY KEY,idSets INTEGER,nombre TEXT,rest_rufi INTEGER,lunes INTEGER,
 martes INTEGER,miercoles INTEGER,jueves INTEGER,viernes INTEGER,sabado INTEGER,domingo INTEGER,FOREIGN KEY(idSets) REFERENCES sets(id))'); */
 
-import 'package:app_mft/models/list_set.dart';
 
 class RutisFisi{
   int id;

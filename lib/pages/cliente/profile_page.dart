@@ -9,25 +9,6 @@ class ProfilePage extends StatefulWidget {
 }
 
 class _ProfilePageState extends State<ProfilePage> {
-  final List<String> fecha = <String>['22', '23', '24', '25', '26', '27', '28'];
-  final List<String> dia = <String>[
-    'Lunes',
-    'Martes',
-    'Miercoles',
-    'Jueves',
-    'Viernes',
-    'Sábado',
-    'Domingo'
-  ];
-  final List<String> musculo = <String>[
-    'Biteck a la plancha',
-    'Ensalda FIT',
-    'Pollo al Horno',
-    'Free Light Super',
-    'Free',
-    'Ensalda FIT',
-    'Pollo al Horno'
-  ];
 
   double porcentaje = 0;
 

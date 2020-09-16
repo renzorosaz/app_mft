@@ -7,12 +7,17 @@ import 'package:app_mft/pages/cliente/evaNutri/complete_macrosnutri_page.dart';
 import 'package:app_mft/pages/cliente/goals_page.dart';
 import 'package:app_mft/pages/cliente/home_client_page.dart';
 import 'package:app_mft/pages/cliente/profile_page.dart';
+import 'package:app_mft/pages/cliente/programanutri/list_menudia_page.dart';
+import 'package:app_mft/pages/cliente/programanutri/list_nutrirutines_page.dart';
+import 'package:app_mft/pages/cliente/programaphysic/list_exercises_page.dart';
 import 'package:app_mft/pages/cliente/programaphysic/list_physicrutines_page.dart';
 import 'package:app_mft/pages/cliente/programaphysic/rate_programphysic_page.dart';
 import 'package:app_mft/pages/cliente/programs_page.dart';
+import 'package:app_mft/pages/physicaltrainer/create_physicsrutines_page.dart';
 import 'package:app_mft/pages/show_evaluations_page.dart';
 import 'package:app_mft/pages/login_page.dart';
 import 'package:app_mft/pages/register_page.dart';
+import 'package:app_mft/widgets/calendar_progress.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -33,12 +38,12 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(fontFamily: 'Exo2'),
         debugShowCheckedModeBanner: false,
         title: 'Material App',
-        initialRoute: 'home', 
+        initialRoute: 'listPhysicRutines', 
         routes: {
           'login': (BuildContext context) => LoginPage(),
           'register' :(BuildContext context)=> RegisterUserPage(),
-
           'showSelectEvas' :(BuildContext context) => ShowEvaluationsPage(),
+
           //evaNutricional
           'completeGoalN' :(BuildContext context) =>CompleteGoalNutriPage(),
           'completeMacrosN' :(BuildContext context) => CompleteMacrosNutriPage(),
@@ -49,11 +54,19 @@ class _MyAppState extends State<MyApp> {
           'completeControlF' :(BuildContext context) =>CompleteControlPhysicPage(),
 
           //programa fisico 
-          'listPhysicRutines' :(BuildContext context) =>ListPhysicRutinesPage(),
-          'ratePhysic' : (BuildContext context) =>RateProgramaPhysicPage(),
+          'createPhysicRutines':(BuildContext context) =>CreatePhysicRutinesPage(),
 
-          'home' :(BuildContext context) =>HomeClientPage(),          
+
+          //cliente
+          'home' :(BuildContext context) =>HomeClientPage(), 
           'programs' :(BuildContext context) =>ProgramsPage(),
+          'listPhysicRutines' :(BuildContext context) =>ListPhysicRutinesPage(),
+          
+          'listExcercises': (BuildContext contect)=> ListExcercisesPage(),
+          'listNutriRutines':(BuildContext context) => ListNutriRutinesPage(),
+          'listMenuDia' :(BuildContext context) => ListMenuDiaPage(),
+          'ratePhysic' : (BuildContext context) =>RateProgramaPhysicPage(),
+          'calendar':(BuildContext context) =>CalendarProgress(),
           'profClie' :(BuildContext context) =>ProfilePage(),
           'goalsClie' :(BuildContext context) =>GoalsPage(),
         },

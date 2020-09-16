@@ -8,20 +8,18 @@ class GoalsPage extends StatefulWidget {
 }
 
 class _GoalsPageState extends State<GoalsPage> {
-  List _emojis = ['😃', '😜', '🤓', '😁', '😂', '😞'];
-  List _listagrasa = ['10', '15', '20', '25', '30', '35'];
+  
 
-  List _listaimc = [
-    'Bajo de peso',
-    'Normal',
-    'Sobrepeso',
-    'Obesidad',
-    'Obesidad 2'
-  ];
+  double _valuePeso = 80.0;
+  double _slidePeso = 80.0;
 
-  double _valuePeso = 0.0;
-  double _valueGrasa = 0.0;
-  double _valueMC = 0.0;
+  var selectRangePeso = RangeValues(80.0, 0.8);
+
+  double _valueGrasa = 23.0;
+  double _slideGrasa = 23.0;
+
+  double _valueIMC = 24.0;
+  double _slideIMC = 24.0;
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +27,7 @@ class _GoalsPageState extends State<GoalsPage> {
       body: SingleChildScrollView(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 50),
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 50),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -62,198 +60,198 @@ class _GoalsPageState extends State<GoalsPage> {
                 SizedBox(
                   height: 40,
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                Row(
                   children: [
-                    
-                    Card(
-                      elevation: 7,
-                      shadowColor: Colors.black,
-                      child: Column(
-                        children: [
-                          Text(
-                            "Peso Actual",
-                            style: TextStyle(fontSize: 18),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            '${(_valuePeso*100).toStringAsFixed(2)}',
-                            style: Theme.of(context).textTheme.headline4,
-                          ),
-                        ],
+                    Container(
+                      width: 125,
+                      child: Card(
+                        child: Column(
+                          children: [
+                            Text(
+                              "Peso Actual",
+                              style: TextStyle(fontSize: 17),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              "$_valuePeso",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Text(
-                      '${_emojis[_valuePeso.toInt()]}',
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                    
-                    Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Column(
-                                children: [
-                                  Text("Peso Actual"),
-                                  Text(
-                             '${(_valuePeso*100).toStringAsFixed(2)}',
-                             style: TextStyle(fontSize: 15),
-                             ),
-                                ],
-                              ),
-                              Expanded(
-                                child: Slider(
-                                  value: _valuePeso,
-                                  /* label: _emojis[_valuePeso.toInt()], */
-                                  min: 0.0,
-                                  max: 1.0,
-                                  onChangeStart: (double value) {
-                                    print('Start value is ' + value.toString());
-                                  },
-                                  onChangeEnd: (double value) {
-                                    print(
-                                        'Finish value is ' + value.toString());
-                                  },
-                                  onChanged: (double value) {
-                                    setState(() {
-                                      _valuePeso = value;
-                                    });
-                                  },
-                                  activeColor: Colors.blueAccent,
-                                  inactiveColor: Colors.black45,
-                                ),
-                              ),
-                              Column(
-                                children: [
-                                  Text("Meta"),
-                                  Text(
-                             '${((_valuePeso*100)-5).toStringAsFixed(2)}',
-                             style: TextStyle(fontSize: 15),
-                             ),
-                                ],
-                              ),
-                            ],
-                          ),
-                        )),
-                    SizedBox(
-                      height: 40,
-                    ),
-                    Card(
-                      elevation: 7,
-                      shadowColor: Colors.black,
-                      child: Column(
-                        children: [
-                          Text(
-                            "% Grasa Corporal",
-                            style: TextStyle(fontSize: 18),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            '${_valueGrasa.toStringAsPrecision(3)}',
-                            style: Theme.of(context).textTheme.headline4,
-                          ),
-                        ],
+                    Container(
+                      width: 200,
+                      child: Card(
+                        child: Column(
+                          children: [
+                            Text(
+                              "Peso Recomendado",
+                              style: TextStyle(fontSize: 17),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              "${_valuePeso - 5}",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
-                    Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(_emojis[0], softWrap: true),
-                              Expanded(
-                                child: Slider(
-                                  value: _valueGrasa,
-                                  //label: _emojis[_value.toInt()],
-                                  min: 0.0,
-                                  max: 50.0,
-                                  onChangeStart: (double value) {
-                                    print('Start value is ' + value.toString());
-                                  },
-                                  onChangeEnd: (double value) {
-                                    print(
-                                        'Finish value is ' + value.toString());
-                                  },
-                                  onChanged: (double value) {
-                                    setState(() {
-                                      _valueGrasa = value;
-                                    });
-                                  },
-                                  activeColor: Colors.greenAccent,
-                                  inactiveColor: Colors.black45,
-                                ),
-                              ),
-                              Text(
-                                _emojis[5],
-                                softWrap: true,
-                              )
-                            ],
-                          ),
-                        )),
-                    SizedBox(
-                      height: 40,
-                    ),
-                    Card(
-                      elevation: 7,
-                      shadowColor: Colors.black,
-                      child: Column(
-                        children: [
-                          Text(
-                            "Indice de Masa Corporal",
-                            style: TextStyle(fontSize: 18),
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            "24.97 %",
-                            style: TextStyle(fontSize: 15),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Text(
-                      '${_listaimc[_valueMC.toInt()]}',
-                      style: Theme.of(context).textTheme.headline4,
-                    ),
-                    Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                        child: Container(
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              Text(_listaimc[0], softWrap: true),
-                              Expanded(
-                                child: Slider(
-                                  value: _valueMC,
-                                  //label: _emojis[_value.toInt()],
-                                  min: 0.0,
-                                  max: 4.0,
-                                  onChangeStart: (double value) {
-                                    print('Start value is ' + value.toString());
-                                  },
-                                  onChangeEnd: (double value) {
-                                    print(
-                                        'Finish value is ' + value.toString());
-                                  },
-                                  onChanged: (double value) {
-                                    setState(() {
-                                      _valueMC = value;
-                                    });
-                                  },
-                                  activeColor: Colors.orangeAccent,
-                                  inactiveColor: Colors.black45,
-                                ),
-                              ),
-                              Text(
-                                _listaimc[4],
-                                softWrap: true,
-                              )
-                            ],
-                          ),
-                        )),
                   ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: 300,
+                  child: Slider(
+                    value: _slidePeso,
+                    min: 0.0,
+                    max: 100.0,
+                    divisions: 100,
+                    label: '${_slideGrasa.round()}',
+                    onChanged: (double value) {
+                      setState(() {
+                        print(value);
+                        _slidePeso = value;
+                      });
+                    },
+                    activeColor: Colors.blueAccent,
+                    inactiveColor: Colors.blueGrey,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      width: 125,
+                      child: Card(
+                        child: Column(
+                          children: [
+                            Text(
+                              "% Grasa Corporal",
+                              style: TextStyle(fontSize: 17),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              "$_valueGrasa",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 200,
+                      child: Card(
+                        child: Column(
+                          children: [
+                            Text(
+                              "%Grasa Corporal Recomendada",
+                              style: TextStyle(fontSize: 17),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              "${_valueGrasa - 5.0}",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+               
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: 300,
+                  child: Slider(
+                    value: _slideGrasa,
+                    min: 0.0,
+                    max: 50.0,
+                    divisions: 50,
+                    label: '${_slideGrasa.round()}',
+                    onChanged: (double value) {
+                      setState(() {
+                        print(value);
+                        _slideGrasa = value;
+                      });
+                    },
+                    activeColor: Colors.blueAccent,
+                    inactiveColor: Colors.blueGrey,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Row(
+                  children: [
+                    Container(
+                      width: 125,
+                      child: Card(
+                        child: Column(
+                          children: [
+                            Text(
+                              "Indice de Masa Corporal",
+                              style: TextStyle(fontSize: 18),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              "$_valueIMC",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 200,
+                      child: Card(
+                        child: Column(
+                          children: [
+                            Text(
+                              "Indice de Masa Corporal Recomendada",
+                              style: TextStyle(fontSize: 18),
+                              textAlign: TextAlign.center,
+                            ),
+                            Text(
+                              "${_valueIMC-5}",
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Container(
+                  width: 300,
+                  child: Slider(
+                    value: _slideIMC,
+                    min: 10.0,
+                    max: 40.0,
+                    divisions: 40,
+                    label: '${_slideIMC.round()}',
+                    onChanged: (double value) {
+                      setState(() {
+                        print(value);
+                        _slideIMC = value;
+                      });
+                    },
+                    activeColor: Colors.blueAccent,
+                    inactiveColor: Colors.blueGrey,
+                  ),
+                ),
+                SizedBox(
+                  height: 20,
                 ),
               ],
             ),

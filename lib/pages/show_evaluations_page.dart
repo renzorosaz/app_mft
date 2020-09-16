@@ -34,10 +34,8 @@ class _ShowEvaluationsPageState extends State<ShowEvaluationsPage> {
 }
 
 class _CardsEvaluation extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
-
     return Container(
       padding: EdgeInsets.symmetric(vertical: 30, horizontal: 40),
       child: Column(
@@ -97,13 +95,14 @@ class _CardsEvaluation extends StatelessWidget {
               )),
           Padding(
             padding: const EdgeInsets.only(left: 290),
-            child: Text('0/3',style: TextStyle(
+            child: Text('0/3',
+                style: TextStyle(
                   color: Colors.blueGrey,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Exo2',
                 )),
-          ),          
+          ),
           SizedBox(
             height: 10,
           ),
@@ -145,7 +144,8 @@ class _CardsEvaluation extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 290),
-            child: Text('0/3',style: TextStyle(
+            child: Text('0/3',
+                style: TextStyle(
                   color: Colors.blueGrey,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,

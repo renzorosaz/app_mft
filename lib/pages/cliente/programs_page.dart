@@ -1,36 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ProgramsPage extends StatefulWidget {
-  ProgramsPage({Key key}) : super(key: key);
-
   @override
   _ProgramsPageState createState() => _ProgramsPageState();
 }
 
 class _ProgramsPageState extends State<ProgramsPage> {
-  final List<String> fecha = <String>['22', '23', '24', '25', '26', '27', '28'];
-  final List<String> dia = <String>[
-    'Lunes',
-    'Martes',
-    'Miercoles',
-    'Jueves',
-    'Viernes',
-    'Sábado',
-    'Domingo'
-  ];
-  final List<String> musculo = <String>[
-    'Biceps - Espalda',
-    'Piernas Pecho',
-    'Abs - Cardio',
-    'Biceps - Espalda',
-    'Piernas Pecho',
-    'Abs - Cardio',
-    'BONUS SACO'
-  ];
-
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
           child: Column(children: [
@@ -93,9 +71,9 @@ class _CardsProgramas extends StatelessWidget {
             height: 15,
           ),
           GestureDetector(
-              /* onTap: () {
-            Navigator.pushNamed(context, 'completeGoalN');
-          }, */
+              onTap: () {
+            Navigator.pushNamed(context, 'listNutriRutines');
+          },
               child: Container(
             width: 650,
             height: 150,
@@ -134,6 +112,8 @@ class _CardsProgramas extends StatelessWidget {
           GestureDetector(
             onTap: () {
               Navigator.pushNamed(context, 'listPhysicRutines');
+
+            
             },
             child: Container(
               width: 400,

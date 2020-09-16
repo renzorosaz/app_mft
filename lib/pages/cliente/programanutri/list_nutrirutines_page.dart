@@ -1,11 +1,13 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
-class ListPhysicRutinesPage extends StatefulWidget {
+class ListNutriRutinesPage extends StatefulWidget {
   @override
-  _ListPhysicRutinesPageState createState() => _ListPhysicRutinesPageState();
+  _ListNutriRutinesPageState createState() => _ListNutriRutinesPageState();
 }
 
-class _ListPhysicRutinesPageState extends State<ListPhysicRutinesPage> {
+class _ListNutriRutinesPageState extends State<ListNutriRutinesPage> {
   List<String> fecha = [
     'LU 14',
     'MA 15',
@@ -27,15 +29,6 @@ class _ListPhysicRutinesPageState extends State<ListPhysicRutinesPage> {
 /* 
   List<String> rutinas = ["Rutina 1", "Rutina 2", "Rutina 3", "Rutina 4"]; */
 
-  List<String> musculo = [
-    'Biceps - Espalda',
-    'Piernas Pecho',
-    'Abs - Cardio',
-    'Biceps - Espalda',
-    'Piernas Pecho',
-    'Abs - Cardio',
-    'BONUS SACO'
-  ];
 
   List<bool> values = [false, false, false, false];
 
@@ -45,10 +38,10 @@ class _ListPhysicRutinesPageState extends State<ListPhysicRutinesPage> {
     });
   }
 
-  final List<RutinaFisica> rutinasF = [
-    RutinaFisica('Rutina 1', false),
-    RutinaFisica('Rutina 2', false),
-    RutinaFisica('Rutina 3', false)
+  final List<MenuDiario> menuD = [
+    MenuDiario('Desayuno', false),
+    MenuDiario('Almuerzo', false),
+    MenuDiario('Cena', false)
   ];
 
   @override
@@ -56,7 +49,7 @@ class _ListPhysicRutinesPageState extends State<ListPhysicRutinesPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          "Mis Rutinas MFT",
+          "Mis Comidas MFT",
           textAlign: TextAlign.center,
         ),
         leading: GestureDetector(
@@ -110,22 +103,22 @@ class _ListPhysicRutinesPageState extends State<ListPhysicRutinesPage> {
                   Text(
                     fecha[index].toString(),
                   ),
-                  Text("Estado: Incompleto")
+                  Text("Estado: Completado")
                 ],
               ),
             ),
             ExpansionTile(
-              title: Text("Rutinas Física"),
+              title: Text("Comidas Diarias"),
               children: [
                 Column(
                   children: [
                     Container(
                       height: 200,
                       child: ListView.builder(
-                          itemCount: rutinasF.length,
+                          itemCount: menuD.length,
                           itemBuilder: (BuildContext context, int index) {
                             return CheckboxListTile(
-                                title: Text(rutinasF[index].name),
+                                title: Text(menuD[index].name),
                                 value: values[index],
                                 controlAffinity:
                                     ListTileControlAffinity.leading,
@@ -133,7 +126,7 @@ class _ListPhysicRutinesPageState extends State<ListPhysicRutinesPage> {
                                   itemChange(val, index);
                                 });
                             /*  return ListTile(
-                                 
+
                                 ); */
                           }),
                     ),
@@ -142,24 +135,24 @@ class _ListPhysicRutinesPageState extends State<ListPhysicRutinesPage> {
                       child: Row(
                         children: [
                           MaterialButton(
-                              color: Colors.blueAccent,
-                              child: Text("Rutina 1"),
+                              color: Colors.greenAccent,
+                              child: Text("Desayuno",style: TextStyle(color: Colors.white)),
                               onPressed: () {
-                                Navigator.pushNamed(context, 'listExcercises');
+                                Navigator.pushNamed(context, 'listMenuDia');
                               }),
                           SizedBox(
                             width: 10,
                           ),
                           MaterialButton(
-                              color: Colors.blueAccent,
-                              child: Text("Rutina 2"),
+                              color: Colors.greenAccent,
+                              child: Text("Almuerzo",style: TextStyle(color: Colors.white)),
                               onPressed: () {}),
                           SizedBox(
                             width: 10,
                           ),
                           MaterialButton(
-                              color: Colors.blueAccent,
-                              child: Text("Rutina 3"),
+                              color: Colors.greenAccent,
+                              child: Text("Cena",style: TextStyle(color: Colors.white)),
                               onPressed: () {}),
                           SizedBox(
                             width: 10,
@@ -221,10 +214,12 @@ class BuildCalificar extends StatelessWidget {
 }
 
 
-
-class RutinaFisica {
+class MenuDiario {
   String name;
+  double gramosproteinas;
+  double gramoscarbohidratos;
+  double gramosgrasas;
   bool isComplete;
 
-  RutinaFisica(this.name, this.isComplete);
+  MenuDiario(this.name, this.isComplete);
 }

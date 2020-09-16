@@ -10,6 +10,7 @@ class CompleteGoalNutriPage extends StatefulWidget {
 }
 
 class _CompleteGoalNutriPageState extends State<CompleteGoalNutriPage>{
+  
   int objNutricional;
   int objFisico;
 

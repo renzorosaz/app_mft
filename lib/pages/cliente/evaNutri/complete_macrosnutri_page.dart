@@ -7,10 +7,12 @@ class CompleteMacrosNutriPage extends StatefulWidget {
 }
 
 class _CompleteMacrosNutriPageState extends State<CompleteMacrosNutriPage> {
+  
   int dropActiviValue;
   int cmMuneca;
   int altura;
   int edad;
+  int peso;
 
   @override
   Widget build(BuildContext context) {
@@ -179,6 +181,54 @@ class _CompleteMacrosNutriPageState extends State<CompleteMacrosNutriPage> {
                   onChanged: (value) {
                     setState(() {
                       edad = value;
+                    });
+                  }),
+            ),
+             SizedBox(
+              height: 15,
+            ),
+            Container(
+              width: 350,
+              padding: const EdgeInsets.only(right: 150),
+              child: Text(
+                'Peso',
+                style: TextStyle(
+                    color: Colors.blueGrey,
+                      fontSize: 15.0,
+                      fontFamily: 'Exo2',
+                      fontWeight: FontWeight.bold),
+                maxLines: 1,
+              ),
+            ),
+            Container(
+              width: 400,
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: DropdownButton(
+                underline: Container(
+                  height: 2,
+                  color: Colors.blueGrey,
+                ),
+                  isExpanded: true,
+                  icon: Icon(Icons.arrow_drop_down_circle_sharp),
+                  value: peso,
+                  items: [
+                    DropdownMenuItem(child: Text("18"), value: 1),
+                    DropdownMenuItem(child: Text("19"), value: 2),
+                    DropdownMenuItem(child: Text("20"), value: 3),
+                    DropdownMenuItem(child: Text("21"), value: 4),
+                    DropdownMenuItem(child: Text("22"), value: 5),
+                    DropdownMenuItem(child: Text("23"), value: 6),
+                    DropdownMenuItem(child: Text("24"), value: 7),
+                    DropdownMenuItem(child: Text("25"), value: 8),
+                    DropdownMenuItem(child: Text("26"), value: 9),
+                    DropdownMenuItem(child: Text("27"), value: 10),
+                    DropdownMenuItem(child: Text("28"), value: 11),
+                    DropdownMenuItem(child: Text("29"), value: 12),
+                    DropdownMenuItem(child: Text("30"), value: 13),
+                  ],
+                  onChanged: (value) {
+                    setState(() {
+                      peso = value;
                     });
                   }),
             ),

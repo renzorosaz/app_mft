@@ -3,12 +3,12 @@ import 'package:app_mft/provider/login/usuario_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class LoginPage extends StatefulWidget {
+class LoginUserPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => _LoginPageState();
+  _LoginUserPageState createState() => _LoginUserPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginUserPageState extends State<LoginUserPage> {
   PermissionStatus _status;
   final formKey = GlobalKey<FormState>();
 
@@ -17,7 +17,6 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   void initState() {
-
     super.initState();
     _askPermission();
     PermissionHandler().checkPermissionStatus(PermissionGroup.storage);
@@ -33,31 +32,38 @@ class _LoginPageState extends State<LoginPage> {
   }
 
   _askPermission() async {
-    PermissionHandler().requestPermissions([PermissionGroup.storage]).then(_onStatusRequested);
+    PermissionHandler()
+        .requestPermissions([PermissionGroup.storage]).then(_onStatusRequested);
   }
 
-  Future<void> _onStatusRequested(Map<PermissionGroup, PermissionStatus> statuses) async {
+  Future<void> _onStatusRequested(
+      Map<PermissionGroup, PermissionStatus> statuses) async {
     final status = statuses[PermissionGroup.storage];
     _updateStatus(status);
   }
 
   _login() async {
-
-      setState(() {
+    setState(() {
+      formKey.currentState.save();
       print(user.username);
       print(user.password);
-      
-      formKey.currentState.save();/* 
+      /* 
       usuarioProvider.login(user); */
 
-      if (!formKey.currentState.validate()) {
+      /* if (!formKey.currentState.validate()) {
         return ;
-      }
+      } */
 
       //si el login es correcto, lo enviara a la siguiente pagina,
-      Navigator.pushNamed(context, 'showSelectEvas');
+      if (user.username == "entre1" && user.password == "123") {
+        Navigator.pushNamed(context, 'listClients');
+      }
+      else if(user.username == "cli" && user.password == "123") {
+        Navigator.pushNamed(context, 'showSelectEvas');
+      }
+
       // y sino que le muestre un showDialog(
-        /*  context: context,
+      /*  context: context,
           builder: (BuildContext context){
               return AlertDialog(
                 title: Text("Alert Dialog"),
@@ -65,9 +71,6 @@ class _LoginPageState extends State<LoginPage> {
               );
           }
         ) */
-     
-      
-
     });
   }
 
@@ -174,7 +177,7 @@ class _LoginPageState extends State<LoginPage> {
               return "Este campo contraseña es requerido";
             } else if (text.length <= 2) {
               return "Su contraseña debe ser al menos de 5 caracteres";
-            } 
+            }
             return null;
           },
         )); /*  */
@@ -191,7 +194,7 @@ class _LoginPageState extends State<LoginPage> {
           labelText: 'usuario',
         ),
         onSaved: (value) => user.username = value,
-         validator: (text) {
+        validator: (text) {
           if (text.length == 0) {
             return "Este campo correo es requerido";
           }
@@ -199,8 +202,7 @@ class _LoginPageState extends State<LoginPage> {
             return "El formato para correo no es correcto";
           } */
           return null;
-        }, 
-        
+        },
       ),
     );
   }

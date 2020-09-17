@@ -8,32 +8,55 @@ class ShowEvaluationsPage extends StatefulWidget {
 }
 
 class _ShowEvaluationsPageState extends State<ShowEvaluationsPage> {
+
+  
+
   @override
   Widget build(BuildContext context) {
+
+
     return Scaffold(
       body: SafeArea(
-        child: Column(
-          children: [
-            Container(
-              width: 325,
-              margin: EdgeInsets.only(top: 20),
-              child: Text(
-                  "Para empezar a disfrutar del Programa de Adaptación MFT tendrás que completar nuestra evaluación diseñado por expertos en nutrición y entrenadores físicos para darte el mejor servicio",
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15.0,
-                    fontFamily: 'Exo2',
-                  )),
-            ),
-            _CardsEvaluation(),
-          ],
-        ),
+        child: Stack(children: [
+          Container(
+            decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [Colors.blueAccent, Colors.greenAccent])),
+          ),
+          Column(
+            children: [
+              Container(
+                width: 325,
+                margin: EdgeInsets.only(top: 20),
+                child: Text(
+                    "Para empezar a disfrutar del Programa de Adaptación MFT tendrás que completar nuestra evaluación diseñado por expertos en nutrición y entrenadores físicos para darte el mejor servicio",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15.0,
+                      fontFamily: 'Exo2',
+                    )),
+              ),
+              _CardsEvaluation(),
+            ],
+          ),
+        ]),
       ),
     );
   }
 }
 
-class _CardsEvaluation extends StatelessWidget {
+class _CardsEvaluation extends StatefulWidget {
+
+  @override
+  __CardsEvaluationState createState() => __CardsEvaluationState();
+}
+
+class __CardsEvaluationState extends State<_CardsEvaluation> {
+
+  int contadorPrueba=0;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -48,7 +71,7 @@ class _CardsEvaluation extends StatelessWidget {
             child: Text(
               'Selecciona una de las evaluaciones',
               style: TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontSize: 18.0,
                   fontFamily: 'Exo2',
                   fontWeight: FontWeight.w700),
@@ -63,7 +86,7 @@ class _CardsEvaluation extends StatelessWidget {
             padding: const EdgeInsets.only(right: 50),
             child: Text('Evaluacion Estado Nutricional',
                 style: TextStyle(
-                  color: Colors.blueGrey,
+                  color: Colors.white,
                   fontSize: 15.0,
                   fontFamily: 'Exo2',
                 )),
@@ -97,7 +120,7 @@ class _CardsEvaluation extends StatelessWidget {
             padding: const EdgeInsets.only(left: 290),
             child: Text('0/3',
                 style: TextStyle(
-                  color: Colors.blueGrey,
+                  color: Colors.white,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Exo2',
@@ -111,7 +134,7 @@ class _CardsEvaluation extends StatelessWidget {
             padding: const EdgeInsets.only(right: 50),
             child: Text('Evaluacion Estado Físico',
                 style: TextStyle(
-                  color: Colors.blueGrey,
+                  color: Colors.white,
                   fontSize: 15.0,
                   fontFamily: 'Exo2',
                 )),
@@ -146,7 +169,7 @@ class _CardsEvaluation extends StatelessWidget {
             padding: const EdgeInsets.only(left: 290),
             child: Text('0/3',
                 style: TextStyle(
-                  color: Colors.blueGrey,
+                  color: Colors.white,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Exo2',

@@ -14,16 +14,16 @@ import 'package:app_mft/pages/cliente/programaphysic/list_physicrutines_page.dar
 import 'package:app_mft/pages/cliente/programaphysic/rate_programphysic_page.dart';
 import 'package:app_mft/pages/cliente/programs_page.dart';
 import 'package:app_mft/pages/physicaltrainer/create_physicsrutines_page.dart';
-import 'package:app_mft/pages/show_evaluations_page.dart';
-import 'package:app_mft/pages/login_page.dart';
-import 'package:app_mft/pages/register_page.dart';
+import 'package:app_mft/pages/cliente/show_evaluations_page.dart';
+import 'package:app_mft/pages/login_user_page.dart';
+import 'package:app_mft/pages/physicaltrainer/list_clients_page.dart';
+import 'package:app_mft/pages/register_user_page.dart';
 import 'package:app_mft/widgets/calendar_progress.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
-
   @override
   _MyAppState createState() => _MyAppState();
 }
@@ -33,44 +33,50 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-
     return MaterialApp(
-        theme: ThemeData(fontFamily: 'Exo2'),
-        debugShowCheckedModeBanner: false,
-        title: 'Material App',
-        initialRoute: 'listPhysicRutines', 
-        routes: {
-          'login': (BuildContext context) => LoginPage(),
-          'register' :(BuildContext context)=> RegisterUserPage(),
-          'showSelectEvas' :(BuildContext context) => ShowEvaluationsPage(),
+      theme: ThemeData(fontFamily: 'Exo2'),
+      debugShowCheckedModeBanner: false,
+      title: 'MFT APP',
+      initialRoute: 'login',
+      routes: {
+        'login': (BuildContext context) => LoginUserPage(),
+        'register': (BuildContext context) => RegisterUserPage(),
+        'showSelectEvas': (BuildContext context) => ShowEvaluationsPage(),
 
-          //evaNutricional
-          'completeGoalN' :(BuildContext context) =>CompleteGoalNutriPage(),
-          'completeMacrosN' :(BuildContext context) => CompleteMacrosNutriPage(),
-          'completeControlN' :(BuildContext context) => CompleteControlNutriPage(),
-          //evaFisica
-          'completeGoalF' :(BuildContext context) =>CompleteGoalPhysPage(),
-          'completeOperatF' :(BuildContext context) =>CompleteOperationPhysicPage(),
-          'completeControlF' :(BuildContext context) =>CompleteControlPhysicPage(),
+        //evaNutricional
+        'completeGoalN': (BuildContext context) => CompleteGoalNutriPage(),
+        'completeMacrosN': (BuildContext context) => CompleteMacrosNutriPage(),
+        'completeControlN': (BuildContext context) =>
+            CompleteControlNutriPage(),
+        //evaFisica
+        'completeGoalF': (BuildContext context) => CompleteGoalPhysPage(),
+        'completeOperatF': (BuildContext context) =>
+            CompleteOperationPhysicPage(),
+        'completeControlF': (BuildContext context) =>
+            CompleteControlPhysicPage(),
 
-          //programa fisico 
-          'createPhysicRutines':(BuildContext context) =>CreatePhysicRutinesPage(),
+        //programa fisico
+        'createPhysicRutines': (BuildContext context) =>
+            CreatePhysicRutinesPage(),
+        'listClients':(BuildContext context)=>ListClientsPage(),
 
+        //cliente
+        'home': (BuildContext context) => HomeClientPage(),
+        'profClie': (BuildContext context) => ProfilePage(),
+        'goalsClie': (BuildContext context) => GoalsPage(),
+        
+        'programs': (BuildContext context) => ProgramsPage(),
 
-          //cliente
-          'home' :(BuildContext context) =>HomeClientPage(), 
-          'programs' :(BuildContext context) =>ProgramsPage(),
-          'listPhysicRutines' :(BuildContext context) =>ListPhysicRutinesPage(),
-          
-          'listExcercises': (BuildContext contect)=> ListExcercisesPage(),
-          'listNutriRutines':(BuildContext context) => ListNutriRutinesPage(),
-          'listMenuDia' :(BuildContext context) => ListMenuDiaPage(),
-          'ratePhysic' : (BuildContext context) =>RateProgramaPhysicPage(),
-          'calendar':(BuildContext context) =>CalendarProgress(),
-          'profClie' :(BuildContext context) =>ProfilePage(),
-          'goalsClie' :(BuildContext context) =>GoalsPage(),
-        },
+        'listPhysicRutines': (BuildContext context) => ListPhysicRutinesPage(),
+        'listExcercises': (BuildContext contect) => ListExcercisesPage(),
 
-        );
+        'listNutriRutines': (BuildContext context) => ListNutriRutinesPage(),
+        'listMenuDia': (BuildContext context) => ListMenuDiaPage(),
+
+        'ratePhysic': (BuildContext context) => RateProgramaPhysicPage(),
+
+        'calendar': (BuildContext context) => CalendarProgress(),
+      },
+    );
   }
 }
